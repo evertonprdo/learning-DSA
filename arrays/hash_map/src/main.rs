@@ -67,5 +67,5 @@ fn first_uniq_char_3(s: String) -> i32 {
         });
     }
 
-    if res == 100_000 { -1 } else { res }
+    if res > 100_000 { -1 } else { res }
 }
