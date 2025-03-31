@@ -54,10 +54,11 @@ fn first_uniq_char_2(s: String) -> i32 {
     }
 }
 
-// The minified 0ms solution & Space complexity: O(1)
+// The minified 0ms solution with O(1) space complexity
 // https://leetcode.com/problems/first-unique-character-in-a-string/solutions/6055949/video-short-and-simple-o-n-3-approaches/
 fn first_uniq_char_3(s: String) -> i32 {
-    let mut res = 100_001;
+    // Constraints: 1 <= s.length <= 10^5 (i.e, 100,000); so the last possible index is 99,999
+    let mut res = 100_000;
 
     for c in 'a'..='z' {
         s.find(c).map(|left| {
@@ -67,5 +68,6 @@ fn first_uniq_char_3(s: String) -> i32 {
         });
     }
 
-    if res > 100_000 { -1 } else { res as i32 }
+    // If res remains 100,000, it means there is no valid output, so return -1
+    if res == 100_000 { -1 } else { res as i32 }
 }
