@@ -62,7 +62,7 @@ fn first_uniq_char_3(s: String) -> i32 {
     for c in 'a'..='z' {
         s.find(c).map(|left| {
             if s.rfind(c) == Some(left) {
-                res = res.min(left as i32);
+                res = res.min(left);
             };
         });
     }
