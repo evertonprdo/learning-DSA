@@ -1,0 +1,1 @@
+Ok, linked lists in Rust need some [special attention](https://rust-unofficial.github.io/too-many-lists/)!
