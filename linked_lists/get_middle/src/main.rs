@@ -89,6 +89,19 @@ impl Solution {
         slow.cloned()
     }
 
+    // Slow and Fast approach: Someone's safe version
+    pub fn middle_node5(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+        let mut slow = &head;
+        let mut fast = &head;
+
+        while fast.is_some() && fast.as_ref().unwrap().next.is_some() {
+            slow = &slow.as_ref().unwrap().next;
+            fast = &fast.as_ref().unwrap().next.as_ref().unwrap().next;
+        }
+
+        slow.clone()
+    }
+
     // fifty_four_k's "fast and slow" translated version using unsafe code
     // Drop says: missing some nodes
     // Miri says: memory leaked
