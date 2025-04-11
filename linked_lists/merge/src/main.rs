@@ -2,10 +2,12 @@
 // It's a challenge so no theoretical solution or provided solution
 
 use first::HealthyBrainSolution;
+use fourth::SwapSolution;
 use second::Solution;
 use third::RecursiveSolution;
 
 mod first;
+mod fourth;
 mod second;
 mod third;
 
@@ -47,8 +49,12 @@ fn main() {
     //     "R. {:?}",
     //     Solution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
     // );
+    // println!(
+    //     "R. {:?}",
+    //     RecursiveSolution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
+    // );
     println!(
         "R. {:?}",
-        RecursiveSolution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
+        SwapSolution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
     );
 }

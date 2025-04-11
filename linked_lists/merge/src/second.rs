@@ -18,14 +18,14 @@ impl Solution {
                         list1 = node1.next.take();
 
                         *tail = Some(node1);
-                        tail = Self::unwrap_next(tail);
+                        tail = &mut tail.as_mut().unwrap().next;
 
                         list2 = Some(node2);
                     } else {
                         list2 = node2.next.take();
 
                         *tail = Some(node2);
-                        tail = Self::unwrap_next(tail);
+                        tail = &mut tail.as_mut().unwrap().next;
 
                         list1 = Some(node1);
                     }
@@ -34,24 +34,18 @@ impl Solution {
                     list1 = node1.next.take();
 
                     *tail = Some(node1);
-                    tail = Self::unwrap_next(tail);
+                    tail = &mut tail.as_mut().unwrap().next;
                 }
                 (None, Some(mut node2)) => {
                     list2 = node2.next.take();
 
                     *tail = Some(node2);
-                    tail = Self::unwrap_next(tail);
+                    tail = &mut tail.as_mut().unwrap().next;
                 }
                 (None, None) => break,
             }
         }
 
         root.next.take()
-    }
-    fn unwrap_next(tail: &mut Option<Box<ListNode>>) -> &mut Option<Box<ListNode>> {
-        match tail {
-            Some(node) => &mut node.next,
-            None => panic!(),
-        }
     }
 }
