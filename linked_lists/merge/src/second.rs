@@ -32,14 +32,14 @@ impl Solution {
                 }
                 (Some(mut node1), None) => {
                     list1 = node1.next.take();
-                    *tail = Some(node1);
 
+                    *tail = Some(node1);
                     tail = Self::unwrap_next(tail);
                 }
                 (None, Some(mut node2)) => {
                     list2 = node2.next.take();
-                    *tail = Some(node2);
 
+                    *tail = Some(node2);
                     tail = Self::unwrap_next(tail);
                 }
                 (None, None) => break,

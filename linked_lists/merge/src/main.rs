@@ -3,9 +3,11 @@
 
 use first::HealthyBrainSolution;
 use second::Solution;
+use third::RecursiveSolution;
 
 mod first;
 mod second;
+mod third;
 
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
@@ -25,9 +27,6 @@ impl ListNode {
         self.next = Some(Box::new(out));
     }
 }
-impl Drop for ListNode {
-    fn drop(&mut self) {}
-}
 
 fn main() {
     let mut list1 = ListNode::new(4);
@@ -44,8 +43,12 @@ fn main() {
     //     "R. {:?}",
     //     HealthyBrainSolution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
     // );
+    // println!(
+    //     "R. {:?}",
+    //     Solution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
+    // );
     println!(
         "R. {:?}",
-        Solution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
+        RecursiveSolution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
     );
 }
