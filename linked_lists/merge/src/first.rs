@@ -17,22 +17,24 @@ impl HealthyBrainSolution {
             match (list1.take(), list2.take()) {
                 (Some(mut node1), Some(mut node2)) => {
                     if node1.val < node2.val {
-                        Self::transversal_push(&mut root, node1.val);
                         list1 = node1.next.take();
+                        Self::transversal_push(&mut root, node1);
+
                         list2 = Some(node2);
                     } else {
-                        Self::transversal_push(&mut root, node2.val);
                         list2 = node2.next.take();
+                        Self::transversal_push(&mut root, node2);
+
                         list1 = Some(node1);
                     }
                 }
                 (Some(mut node1), None) => {
-                    Self::transversal_push(&mut root, node1.val);
                     list1 = node1.next.take();
+                    Self::transversal_push(&mut root, node1);
                 }
                 (None, Some(mut node2)) => {
-                    Self::transversal_push(&mut root, node2.val);
                     list2 = node2.next.take();
+                    Self::transversal_push(&mut root, node2);
                 }
                 (None, None) => break,
             }
@@ -40,13 +42,13 @@ impl HealthyBrainSolution {
 
         root.next.take()
     }
-    fn transversal_push(root: &mut ListNode, val: i32) {
+    fn transversal_push(root: &mut ListNode, node: Box<ListNode>) {
         match &mut root.next {
-            Some(node) => {
-                Self::transversal_push(node, val);
+            Some(next) => {
+                Self::transversal_push(next, node);
             }
             None => {
-                root.next = Some(Box::new(ListNode::new(val)));
+                root.next = Some(node);
             }
         }
     }
