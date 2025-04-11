@@ -2,6 +2,7 @@
 // It's a challenge so no theoretical solution or provided solution
 
 use first::HealthyBrainSolution;
+use second::Solution;
 
 mod first;
 mod second;
@@ -39,8 +40,12 @@ fn main() {
     }
 
     println!("1. {:?}\n2. {:?}", list1, list2);
+    // println!(
+    //     "R. {:?}",
+    //     HealthyBrainSolution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
+    // );
     println!(
         "R. {:?}",
-        HealthyBrainSolution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
+        Solution::merge_two_lists(Some(Box::new(list1)), Some(Box::new(list2)))
     );
 }
