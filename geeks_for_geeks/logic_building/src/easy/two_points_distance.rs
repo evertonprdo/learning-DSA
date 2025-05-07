@@ -7,7 +7,7 @@ pub struct Point {
 
 pub struct Solution {}
 impl Solution {
-    pub fn distance(a: Point, b: Point) -> f64 {
+    pub fn distance(a: &Point, b: &Point) -> f64 {
         let x = a.x - b.x;
         let y = a.y - b.y;
 
@@ -25,7 +25,7 @@ mod test {
         let b = Point { x: 7.0, y: 7.0 };
 
         let output = 5.0;
-        assert_eq!(Solution::distance(a, b), output);
+        assert_eq!(Solution::distance(&a, &b), output);
     }
 
     #[test]
@@ -34,6 +34,6 @@ mod test {
         let b = Point { x: 4.0, y: 3.0 };
 
         let output = 1.4142135623730951;
-        assert_eq!(Solution::distance(a, b), output);
+        assert_eq!(Solution::distance(&a, &b), output);
     }
 }
