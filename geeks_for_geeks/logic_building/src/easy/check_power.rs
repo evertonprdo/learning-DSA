@@ -1,3 +1,5 @@
+// Check Power: https://www.geeksforgeeks.org/check-if-a-number-is-power-of-another-number/
+
 pub struct Solution {}
 impl Solution {
     pub fn is_power(x: u32, y: u32) -> bool {
